@@ -35,36 +35,46 @@ public class MainActivityUITest {
     }
 
     // This tests if the Celsius value that is displayed on the screen matches the Celsius value
-    // that was calculated.
+    // that was calculated. (I have to clear the text before I can enter anything.)
     @Test
     public void can_enter_fahrenheit() {
-        onView(withId(R.id.fahrenheit_input)).perform(typeText("45"));
-        onView(withId(R.id.convert_btn_1)).perform(click());
-        onView(withId(R.id.celsius_text)).check(matches(withText("7.22 ºC")));
-    }
-
-    // This tests that if no value is inputted for the Fahrenheit to Celsius conversion, the TextView
-    // should only display the Celsius units (ºC).
-    @Test
-    public void should_not_enter_empty_fah() {
-        onView(withId(R.id.convert_btn_1)).perform(click());
-        onView(withId(R.id.celsius_text)).check(matches(withText("ºC")));
+        onView(withId(R.id.conversion_choice_spinner)).perform(click());
+        onView(withText("Fahrenheit to Celsius")).perform(click());
+        onView(withId(R.id.first_amount_input)).perform(clearText());
+        onView(withId(R.id.first_amount_input)).perform(typeText("45"));
+        onView(withId(R.id.second_amount_input)).check(matches(withText("7.22")));
     }
 
     // This tests if the kilograms value that is displayed on the screen matches the kilograms value
-    // that was calculated.
+    // that was calculated. (I have to clear the text before I can enter anything.)
     @Test
     public void can_enter_pounds() {
-        onView(withId(R.id.pounds_input)).perform(typeText("100"));
-        onView(withId(R.id.convert_btn_2)).perform(click());
-        onView(withId(R.id.kilogram_text)).check(matches(withText("45.36 kg")));
+        onView(withId(R.id.conversion_choice_spinner)).perform(click());
+        onView(withText("Pounds to Kilograms")).perform(click());
+        onView(withId(R.id.first_amount_input)).perform(clearText());
+        onView(withId(R.id.first_amount_input)).perform(typeText("60"));
+        onView(withId(R.id.second_amount_input)).check(matches(withText("27.22")));
     }
 
-    // This tests that if no value is inputted for the pounds to kilograms conversion, the TextView
-    // should only display the kilogram units (kg).
+    // This tests if the kilometers value that is displayed on the screen matches the kilometers value
+    // that was calculated. (I have to clear the text before I can enter anything.)
     @Test
-    public void should_not_enter_empty_pounds() {
-        onView(withId(R.id.convert_btn_2)).perform(click());
-        onView(withId(R.id.kilogram_text)).check(matches(withText("kg")));
+    public void can_enter_miles() {
+        onView(withId(R.id.conversion_choice_spinner)).perform(click());
+        onView(withText("Miles to Kilometers")).perform(click());
+        onView(withId(R.id.first_amount_input)).perform(clearText());
+        onView(withId(R.id.first_amount_input)).perform(typeText("60"));
+        onView(withId(R.id.second_amount_input)).check(matches(withText("96.56")));
+    }
+
+    // This tests if the centimeters value that is displayed on the screen matches the centimeters value
+    // that was calculated. (I have to clear the text before I can enter anything.)
+    @Test
+    public void can_enter_inches() {
+        onView(withId(R.id.conversion_choice_spinner)).perform(click());
+        onView(withText("Inches to Centimeters")).perform(click());
+        onView(withId(R.id.first_amount_input)).perform(clearText());
+        onView(withId(R.id.first_amount_input)).perform(typeText("24"));
+        onView(withId(R.id.second_amount_input)).check(matches(withText("60.96")));
     }
 }

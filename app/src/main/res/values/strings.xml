@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">Unit Coverter</string>
+    <string name="app_name">Unit Converter</string>
+
+    <string-array name="conversion_formulas">
+        <item>Fahrenheit to Celsius</item>
+        <item>Pounds to Kilograms</item>
+        <item>Miles to Kilometers</item>
+        <item>Inches to Centimeters</item>
+    </string-array>
 </resources>
